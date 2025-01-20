@@ -1,0 +1,93 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+
+    font-family: "Poppins", sans-serif;
+}
+a
+{
+    text-decoration: none;
+    color: $glasses-color;
+}
+
+body
+{
+    @include flexCenter();
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    
+        background-image: url('../../images/abstract-1779589_1920.png');
+
+    .container-main
+    {
+        margin-top: 100px;
+        h1
+        {
+            font-size: 80px;
+            letter-spacing: 16px;
+            color: white;
+            span
+            {
+                font-size: 128px;
+                color: $skocko-color;
+            }
+            img
+            {
+                margin-right: 18px;
+                width: 120px;
+            }
+        }
+
+        #games-container
+        {
+            margin-top: 50px;
+            @include flexCenter(column);
+            row-gap: 32px;
+
+            button
+            {
+                width: 450px;
+                height: 60px;
+
+                font-size: 24px;
+                font-weight: bold;
+                border-radius: 12px;
+                color: $glasses-color;
+                border-color: #873284;
+                cursor: pointer;
+            }
+
+            button:hover
+            {
+                background-color: rgb(219, 219, 219);
+            }
+
+            #point-reset
+            {
+                margin-top: 100px;
+                color: red;
+            }
+        }
+    }
+
+    #point-holder
+    {
+        @include flexCenter();
+        position: absolute;
+        top: 25px;
+        right: 25px;
+
+        background-color: #ffcf2370;
+
+        width: 200px;
+        height: 80px;
+
+        border: 3px dotted $skocko-color;
+
+        font-size: 48px;
+        color: gold;
+    }
+}

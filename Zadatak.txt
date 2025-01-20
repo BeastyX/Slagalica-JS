@@ -1,0 +1,29 @@
+slagalica
+sa 4 igre
+<> <> <> Pre pocetka igre trazi se ime igraca. Kad igras zavrsi igru do kraja ubacuje se u leaderboard koji se vidi na dugme LeaderBoard.html
+
+MojBroj
+<> ne sme korisnik da klikne broj za brojem ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+<> AI resenje
+<> backspace operacija/broj ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+<> Korisnik ne sme vise puta da unese operacije (* + / -), ali zagrade sme. ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+<> Timer
+Spojnice
+Ko zna zna
+Skocko
+--------------------------------------------------------------------------------------
+<> L I N K S <>
+<> Izgled Moj Broj -> takodje sam video da na ovom sajtu igra imas samo za jedan broj. U mom resenju mogu da dam niz 10 random brojeva
+https://www.slagalica.tv/game/mojbroj/
+<> How to convert string equation to number in javascript?
+https://stackoverflow.com/questions/10286386/how-to-convert-string-equation-to-number-in-javascript
+<> Using Math.random() in JavaScript
+https://josephcardillo.medium.com/using-math-random-in-javascript-c49eff920b11#:~:text=A%20short%20guide%20to%20.,round&text=In%20JavaScript%2C%20to%20get%20a,random()%20function.&text=If%20you%20want%20a%20random,then%20round%20up%20or%20down.
+<> infinite number counter css - ANIMACIJA
+https://www.youtube.com/watch?v=Vs9b7FW-P5o&ab_channel=CodeSmoker
+<> Javascript working with cache
+https://stackoverflow.com/questions/69756503/javascript-number-counter-with-cache
+<> Pretvori uvek u pozitivan broj
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
+<> How to Get Last Element in an Array
+https://flexiple.com/javascript/get-last-array-element-javascript
