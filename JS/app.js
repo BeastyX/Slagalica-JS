@@ -315,6 +315,25 @@ function backSpaceHandler()
         userRez.textContent = userRez.textContent.substring(0, userRez.textContent.length - 1); // ako nije broj onda je operacija i uvek 1 char +-*()/
     }
 
+    const lastChar = userRez.textContent.length > 0 ? userRez.textContent[userRez.textContent.length - 1] : null;
+
+    if (lastChar === null) 
+    {
+        isNumber = true;
+    } 
+    else if (lastChar >= "0" && lastChar <= "9") 
+    {
+        isNumber = false;
+    } 
+    else if (lastChar == ")")
+    {
+        isNumber = false;
+    }
+    else 
+    {
+        isNumber = true;
+    }
+
     console.log(backSpaceFieldArray);
     console.log(numberlenArray);
     console.log("<><><><><><><><><>");
