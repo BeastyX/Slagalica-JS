@@ -32,6 +32,8 @@ const btnStart = document.getElementById("start-game");
 const btnClear = document.getElementById("clear");
 const btnCheck = document.getElementById("check");
 
+const countDown = document.getElementById("timer");
+
 const nextGame = document.getElementsByClassName("go-back")[0];
 
 poeni = 0;
@@ -43,12 +45,7 @@ let userCalc = '';
 let finalUserResult;
 let isNumber = true;
 
-if (localStorage.getItem('poeni'))
-{
-    poeni = parseInt(localStorage.getItem('poeni'), 10);
-}
-
-pointHolder.textContent = poeni;
+let numbersToUse = [];
 
 const numberFieldsArray = [fourNumbers1, fourNumbers2, fourNumbers3, fourNumbers4, middleNumber, lastNumber];
 const operationFieldsArray = [plus, minus, multiply, divide, openBracket, closedBracket];
@@ -56,14 +53,29 @@ const operationFieldsArray = [plus, minus, multiply, divide, openBracket, closed
 let backSpaceFieldArray = [];
 let numberlenArray = [];
 
-for (const element of glitch)
-{
-    element.style.visibility = 'hidden';
-}
-glitch[0].style.visibility = 'visible';
+let timer = 60;
+let intervalID;
 
-addEvent();
-isEnalbedBtns(false);
+gameSetUp();
+
+function gameSetUp()
+{
+    if (localStorage.getItem('poeni')) 
+    {
+        poeni = parseInt(localStorage.getItem('poeni'), 10);
+    }
+
+    pointHolder.textContent = poeni;
+
+    for (const element of glitch) 
+    {
+        element.style.visibility = 'hidden';
+    }
+    glitch[0].style.visibility = 'visible';
+
+    addEvent();
+    isEnalbedBtns(false);
+}
 
 // Trebao bi da se sredi kod ovde - niz za fieldove, for neki i tako
 function startGame()
@@ -100,6 +112,12 @@ function startGame()
         btnCheck.style.display = 'flex';
 
         isEnalbedBtns(true);
+        getAllNumbers();
+
+        if (!intervalID) 
+        {
+            intervalID = setInterval(updateCountdown, 1000); // Set the interval once
+        }
     }
 
     if(counter <= 7)
@@ -127,6 +145,14 @@ function randomLastNumber()
     return lastArray[rndNumber];
 }
 // <> <> RANDOM NUMBER FUNKCIJE <> <>
+
+function getAllNumbers()
+{
+    for (const element of numberFieldsArray) 
+    {
+        numbersToUse.push(Number(element.textContent));
+    }
+}
 
 function isEnalbedBtns(check)
 {
@@ -175,9 +201,8 @@ function calculation(event)
     }
     else if(elementID == btnCheck)
     {
-        finalUserResult = eval(userRez.textContent); //234 npr.
-        userRez.textContent += ` = ${finalUserResult}`;
-        points(finalUserResult, numberToFind);
+        clearInterval(intervalID);
+        calculateResults();
         endGame();
 
         return;
@@ -226,6 +251,29 @@ function calculation(event)
     }
 
     
+}
+
+function calculateResults()
+{
+    try {
+        finalUserResult = eval(userRez.textContent); //234 npr.
+
+        if (isNaN(finalUserResult) || finalUserResult === Infinity || finalUserResult === -Infinity)
+            finalUserResult = 0;
+    }
+    catch (error) {
+        finalUserResult = 0;
+    }
+
+    userRez.textContent += ` = ${finalUserResult}`;
+    points(finalUserResult, numberToFind);
+    // console.log(numbersToUse);
+
+    backSpace.disabled = true;
+
+    let result = solveExpression(numbersToUse, numberToFind);
+    compRez.textContent = `${result.closestExpression} = ${result.closest}`;
+    // console.log(`${result.closestExpression} = ${result.closest}`);
 }
 
 function points(finalUserResult, numberToFind)
@@ -338,6 +386,74 @@ function backSpaceHandler()
     console.log(numberlenArray);
     console.log("<><><><><><><><><>");
 }
+
+function updateCountdown()
+{
+    let seconds = timer % 60;
+
+    countDown.textContent = seconds === 0 ? 60 : seconds;
+    timer--;
+
+    if (timer < 0)
+    {
+        clearInterval(intervalID);
+        alert("TIME IS UP!");
+        countDown.textContent = "/";
+
+        calculateResults();
+        endGame();
+
+        return;
+    }
+}
+
+// <><><><><><><><><><> AI RESULT <><><><><><><><><><>
+function solveExpression(numbers, target) {
+    let closest = null; // Closest result found
+    let closestExpression = ""; // Expression for the closest result
+
+    function backtrack(currentNumbers, expressionParts) {
+        if (currentNumbers.length === 1) {
+            const result = currentNumbers[0];
+            if (closest === null || Math.abs(result - target) < Math.abs(closest - target)) {
+                closest = result;
+                closestExpression = expressionParts[0]; // Save the final expression
+            }
+            return;
+        }
+
+        for (let i = 0; i < currentNumbers.length; i++) {
+            for (let j = i + 1; j < currentNumbers.length; j++) {
+                let remaining = currentNumbers.filter((_, idx) => idx !== i && idx !== j);
+                let a = currentNumbers[i];
+                let b = currentNumbers[j];
+
+                // Try each operation and build the expression
+                [
+                    ['+', a + b, `(${expressionParts[i]} + ${expressionParts[j]})`],
+                    ['-', a - b, `(${expressionParts[i]} - ${expressionParts[j]})`],
+                    ['*', a * b, `(${expressionParts[i]} * ${expressionParts[j]})`],
+                    ['/ ', b !== 0 && Number.isInteger(a / b) ? a / b : null, `(${expressionParts[i]} / ${expressionParts[j]})`]
+                ].forEach(([op, res, expr]) => {
+                    if (res === null) return; // Skip invalid operations (like division by zero)
+
+                    backtrack([...remaining, res], [...expressionParts.filter((_, idx) => idx !== i && idx !== j), expr]);
+                });
+            }
+        }
+    }
+
+    // Start with numbers and their string representations
+    const initialExpressions = numbers.map(String);
+    backtrack(numbers, initialExpressions);
+
+    return { closest, closestExpression };
+}
+// <><><><><><><><><><> AI RESULT <><><><><><><><><><>
+
+// Example Usage:
+
+
 
 function addEvent()
 {

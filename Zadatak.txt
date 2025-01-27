@@ -4,15 +4,19 @@ sa 4 igre
 
 MojBroj
 <> ne sme korisnik da klikne broj za brojem ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
-<> AI resenje
 <> backspace operacija/broj ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
 <> Korisnik ne sme vise puta da unese operacije (* + / -), ali zagrade sme. ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
-<> Timer
+<> Timer ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+<> AI resenje (Dogovor preko gptija) ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+
 Spojnice
 Ko zna zna
 Skocko
 --------------------------------------------------------------------------------------
 <> L I N K S <>
+
+<> <> MOJ BROJ <> <>
+
 <> Izgled Moj Broj -> takodje sam video da na ovom sajtu igra imas samo za jedan broj. U mom resenju mogu da dam niz 10 random brojeva
 https://www.slagalica.tv/game/mojbroj/
 <> How to convert string equation to number in javascript?
@@ -27,3 +31,32 @@ https://stackoverflow.com/questions/69756503/javascript-number-counter-with-cach
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
 <> How to Get Last Element in an Array
 https://flexiple.com/javascript/get-last-array-element-javascript
+
+<> AI resenje Step by Step
+- Prvo nisam uspeo preko gptija da uradim, bukvalno nije mogao da se snadje kako da napravi, znao je sta samo ne kako.
+- Trazio sam ako ima gotov algoritam na internetu i naisao na forum:
+https://www.reddit.com/r/programiranje/comments/sh9szn/slagalica_moj_broj/?rdt=48319
+- odatle sam otisao na:
+https://slidetodoc.com/programming-in-haskell-chapter-11-the-countdown-problem/
+- Neka stara prez vezana za to kako se pravi taj algoritam za slicnu igru koja je nastala u Engleskoj
+- Ovo sam poslao gptiju kao link i pitao ga da li moze da nauci njihov nacim i onda da proba da napravi ono sto meni treba:
+
+can you read all this here: https://slidetodoc.com/programming-in-haskell-chapter-11-the-countdown-problem/
+then try and form a result?
+
+- Posle ovoga smo uspeli da dodjemo do resenja :)
+
+<> Simple Countdown Timer with JavaScript
+https://www.youtube.com/watch?v=x7WJEmxNlEs&ab_channel=FlorinPop
+----------------------------------------------------------------------------------------------------------------------
+
+<> <> SPOJNICE <> <>
+
+<> How to Call a Function from Another Script Using jQuery? // Nisam bio zadovoljan ovim nacinom
+https://www.geeksforgeeks.org/how-to-call-a-function-from-another-script-using-jquery/
+<> How to access array from another .js file? // Blizu sam bio sa ovim, kopao sam odavde i nasao sledeci link ispod
+https://stackoverflow.com/questions/71977542/how-to-access-array-from-another-js-file
+<> ES6 Modules - Import / Export
+https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file/950146#950146
+<> How to randomize (shuffle) a JavaScript array?
+https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MojBroj</title>
     <link rel="stylesheet" href="css/main.min.css">
-    <script src="JS/app.js" defer></script>
+    <script src="JS/mojBroj.js" defer></script>
 </head>
 <body>
     <div id="main-container">
@@ -69,8 +69,10 @@
             <button class="operation-content" id="open-bracket">(</button>
             <button class="operation-content" id="closed-bracket">)</button>
         </div>
-        <div id="user-result"></div>
-        <button id="backSpace">X</button>
+        <div class="userControl">
+            <div id="user-result"></div>
+            <button id="backSpace">X</button>
+        </div>
         <div id="computer-result"></div>
         <div class="btns">
             <button id="clear">C L E A R</button>
@@ -82,5 +84,8 @@
     <div id="point-holder">
 
     </div>
+    <p id="timer">
+        
+    </p>
 </body>
 </html>

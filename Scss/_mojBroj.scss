@@ -225,39 +225,44 @@ body
                 cursor: pointer;
             }
         }
-
-        #user-result
+        .userControl
         {
-            position: relative;
-
-            width: 50%;
             @include flexCenter();
+            width: 100%;
+            // border: 1px solid red;
             margin-top: 200px;
-        
-            background-color: $field-color;
-            border: 2px solid $glasses-color;
-        
-            border-radius: 12px;
-            height: 60px;
-            padding: 12px;
-        
-            font-size: 48px;
-            color: white;
-        }
-        #backSpace
-        {
-            position: absolute;
-            right: 10px;
-            width: 50px;
-            height: 80%;
 
-            border-radius: 12px;
-            background-color: $field-color;
-            border: 2px solid $glasses-color;
-            font-size: 24px;
-            color: white;
+            #user-result
+            {
+                width: 50%;
+                @include flexCenter();
+                margin-left: 75px;
+            
+                background-color: $field-color;
+                border: 2px solid $glasses-color;
+            
+                border-radius: 12px;
+                height: 60px;
+                padding: 12px;
+            
+                font-size: 48px;
+                color: white;
+            }
 
-            cursor: pointer;
+            #backSpace
+            {
+                // position: absolute;
+                height: 87px;
+                width: 60px;
+                margin-left: 12px;
+                border-radius: 12px;
+                background-color: $field-color;
+                border: 2px solid $glasses-color;
+                font-size: 24px;
+                color: white;
+    
+                cursor: pointer;
+            }
         }
 
         #computer-result
@@ -317,6 +322,25 @@ body
 
             cursor: pointer;
         }
+    }
+
+    #timer
+    {
+        @include flexCenter();
+        position: absolute;
+        top: 25px;
+        left: 25px;
+    
+        background-color: $field-color;
+    
+        width: 130px;
+        height: 130px;
+    
+        border: 3px dotted $glasses-color;
+    
+        font-size: 48px;
+        text-shadow: 0 4px 8px $glasses-color;
+        color: white;
     }
 }
 
