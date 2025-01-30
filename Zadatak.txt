@@ -70,3 +70,8 @@ https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascrip
 
 <> How to pause JavaScript code execution
 https://stackoverflow.com/questions/16623852/how-to-pause-javascript-code-execution-for-2-seconds
+----------------------------------------------------------------------------------------------------------------------
+
+<> <> SKOCKO <> <>
+<> querySelectorAll - How to only get elements within a certain div
+https://stackoverflow.com/questions/18404211/queryselectorall-how-to-only-get-elements-within-a-certain-div

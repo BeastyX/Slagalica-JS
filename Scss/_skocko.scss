@@ -10,6 +10,7 @@ body
 
     #main-container4
     {
+        position: relative;
         // border: 1px solid red;
         margin-top: 200px;
         width: 100%;
@@ -45,6 +46,10 @@ body
                         
                             color: white;
                             text-shadow: 0 4px 8px $glasses-color;
+                            img
+                            {
+                                width: 80px;
+                            }
                         }
                     }
                 }
@@ -94,6 +99,52 @@ body
                 }
             }
         }
+
+        #center
+        {
+            position: absolute;
+            @include flexCenter(column);
+            row-gap: 32px;
+
+            button
+            {
+                @include flexCenter();
+                
+                background-color: $field-color;
+                border: 2px solid $glasses-color;
+            
+                border-radius: 12px;
+                width: 200px;
+                height: 50px;
+                padding: 12px;
+            
+                font-size: 32px;
+                color: white;
+                text-shadow: 0 4px 8px $glasses-color;
+
+                cursor: pointer;
+            }
+
+            .middle-container
+            {
+                margin-bottom: 50px;
+                #timer3
+                {
+                    @include flexCenter();
+                
+                    background-color: $field-color;
+                
+                    width: 130px;
+                    height: 130px;
+                
+                    border: 3px dotted $glasses-color;
+                
+                    font-size: 48px;
+                    text-shadow: 0 4px 8px $glasses-color;
+                    color: white;
+                }
+            }
+        }
     }
 
     #contaiener-skocko
@@ -103,16 +154,30 @@ body
         margin-top: 100px;
         width: 50%;
         height: 150px;
-        border: 2px solid $glasses-color;
         padding: 12px;
         border-radius: 32px;
-        img
+
+        
+        button
         {
-            width: 120px;
-        }
-        img:nth-child(1)
-        {
-            width: 105px;
+            background-color: $field-color;
+            border: 2px solid $glasses-color;
+            
+            width: 130px;
+            height: 130px;
+
+            border-radius: 12px;
+
+            color: white;
+            cursor: pointer;
+
+            img
+            {
+                // width: 120px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 }
