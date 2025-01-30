@@ -60,3 +60,13 @@ https://stackoverflow.com/questions/71977542/how-to-access-array-from-another-js
 https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file/950146#950146
 <> How to randomize (shuffle) a JavaScript array?
 https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+----------------------------------------------------------------------------------------------------------------------
+
+<> <> KO ZNA ZNA <> <>
+- Dogovor je da smem da koristim sve alate za logiku ubacivanja pitanja. Sama logika igre je moja
+
+- Ideja za pitanja. Pitanja sam stavio u array objekata u JS file: KoZnaZnaPitanja.js. Ovo exportujem u glavni file: KoZnaZna.js. uz pomoc AI-a
+- punim listu pitanja. 
+
+<> How to pause JavaScript code execution
+https://stackoverflow.com/questions/16623852/how-to-pause-javascript-code-execution-for-2-seconds

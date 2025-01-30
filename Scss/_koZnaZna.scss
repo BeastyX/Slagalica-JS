@@ -1,0 +1,147 @@
+body 
+{
+    @include flexCenter(column);
+
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+
+    background-image: url('../images/abstract-1779589_1920.png');
+
+    #main-container3
+    {
+        margin-top: 350px;
+        @include flexCenter(column);
+        column-gap: 32px;
+        // border: 1px solid red;
+
+        #question-box
+        {
+            position: relative;
+            @include flexCenter();
+            
+            background-color: $field-color;
+            border: 2px solid $glasses-color;
+        
+            border-radius: 12px;
+            width: 1600px;
+            height: 400px;
+        
+            font-size: 40px;
+            color: white;
+            text-shadow: 0 4px 8px $glasses-color;
+
+            p
+            {
+                text-align: center;
+                padding: 24px;
+            }
+
+            #correct-Answer
+            {
+                position: absolute;
+                bottom: 12px;
+
+                background-color: $field-color;
+                border: 2px solid $glasses-color;
+            
+                border-radius: 12px;
+                width: 35%;
+                height: 100px;
+            
+                font-size: 40px;
+                color: white;
+                text-shadow: 0 4px 8px $glasses-color;
+            }
+        }
+
+        #answers-box
+        {
+            margin-top: 32px;
+            width: 1600px;
+            @include flexCenter(row, space-between);
+            flex-wrap: wrap;
+            column-gap: 64px;
+            row-gap: 64px;
+
+            button
+            {
+                @include flexCenter();
+            
+                background-color: $field-color;
+                border: 2px solid $glasses-color;
+            
+                border-radius: 12px;
+                width: 35%;
+                height: 100px;
+                padding: 12px;
+            
+                font-size: 40px;
+                color: white;
+                text-shadow: 0 4px 8px $glasses-color;
+
+                cursor: pointer;
+            }
+        }
+    }
+    #next
+    {
+        margin-top: 50px;
+        width: 300px;
+
+        @include flexCenter();
+        height: 80px;
+        background-color: $field-color;
+        border: 2px solid $glasses-color;
+        color: white;
+        font-size: 32px;
+
+        cursor: pointer;
+    }
+
+    #go-back
+    {
+        margin-top: 25px;
+        width: 664px;
+
+        @include flexCenter();
+        height: 50px;
+        background-color: #ffcf2370;
+        border: 2px solid $skocko-color;
+        color: white;
+        font-size: 32px;
+        display: none;
+
+        cursor: pointer;
+    }
+}
+
+.redFieldAnimate
+{
+    animation: redField 1s linear;
+}
+
+@keyframes redField
+{
+    0% 
+    {
+        background-color: #87328423;
+    }
+    25% 
+    {
+        background-color: rgba(255, 0, 0, 0.423);
+    }
+    50%
+    {
+        background-color: #87328423;
+    }
+    75%
+    {
+        background-color: rgba(255, 0, 0, 0.423);
+    }
+    100%
+    {
+        background-color: #87328423;
+    }
+
+}
