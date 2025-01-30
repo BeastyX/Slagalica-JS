@@ -11,7 +11,7 @@ body
     #main-container4
     {
         // border: 1px solid red;
-        margin-top: 100px;
+        margin-top: 200px;
         width: 100%;
         @include flexCenter();
         
@@ -19,16 +19,22 @@ body
         {
             @include flexCenter();
             width: 50%;
-            border: 1px solid red;
+            // border: 1px solid red;
 
             table
             {
                 tbody
                 {
+                    @include flexCenter(column);
+                    row-gap: 12px;
                     tr
                     {
+                        @include flexCenter();
+                        column-gap: 12px;
                         th
                         {
+                            @include flexCenter();
+
                             width: 120px;
                             height: 120px;
 
@@ -49,16 +55,22 @@ body
         {
             @include flexCenter();
             width: 50%;
-            border: 1px solid red;
+            // border: 1px solid red;
 
             table
             {
                 tbody
                 {
+                    @include flexCenter(column);
+                    row-gap: 12px;
                     tr
                     {
+                        @include flexCenter();
+                        column-gap: 12px;
                         th
                         {
+                            @include flexCenter();
+
                             width: 120px;
                             height: 120px;
 
@@ -69,10 +81,38 @@ body
                         
                             color: white;
                             text-shadow: 0 4px 8px $glasses-color;
+
+                            .circle
+                            {
+                                border: 2px solid $glasses-color;
+                                width: 120px;
+                                height: 120px;
+                                border-radius: 50%;
+                            }
                         }
                     }
                 }
             }
+        }
+    }
+
+    #contaiener-skocko
+    {
+        @include flexCenter();
+        column-gap: 50px;
+        margin-top: 100px;
+        width: 50%;
+        height: 150px;
+        border: 2px solid $glasses-color;
+        padding: 12px;
+        border-radius: 32px;
+        img
+        {
+            width: 120px;
+        }
+        img:nth-child(1)
+        {
+            width: 105px;
         }
     }
 }
