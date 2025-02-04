@@ -75,3 +75,5 @@ https://stackoverflow.com/questions/16623852/how-to-pause-javascript-code-execut
 <> <> SKOCKO <> <>
 <> querySelectorAll - How to only get elements within a certain div
 https://stackoverflow.com/questions/18404211/queryselectorall-how-to-only-get-elements-within-a-certain-div
+<> Using JavaScript's sort Method for Sorting Arrays of Numbers
+https://www.digitalocean.com/community/tutorials/js-array-sort-numbers

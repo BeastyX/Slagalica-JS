@@ -92,4 +92,40 @@ body
         text-shadow: 0 4px 8px $skocko-color;
         color: white;
     }
+
+    #user-holder
+    {
+        @include flexCenter();
+        position: absolute;
+        top: 140px;
+        right: 25px;
+
+        background-color: $field-color;
+        border: 2px dotted $glasses-color;
+    
+        border-radius: 12px;
+        width: 400px;
+        height: 80px;
+    
+        font-size: 40px;
+        color: white;
+        text-shadow: 0 4px 8px $glasses-color;
+    }
+
+    #leaderBoard
+    {
+        margin-top: 100px;
+        background-color: $field-color;
+        color: white;
+        text-shadow: 0 4px 8px $glasses-color;
+        tr
+        {
+            td
+            {
+                border: 2px solid $glasses-color;
+                font-size: 32px;
+                padding: 12px;
+            }
+        }
+    }
 }
