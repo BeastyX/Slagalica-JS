@@ -297,6 +297,7 @@ function points(finalUserResult, numberToFind)
         poeni += 5;
     }
 
+    
     pointHolder.textContent = poeni;
     localStorage.setItem('poeni', poeni);
 }
@@ -473,7 +474,6 @@ function addEvent()
         element.addEventListener('click', calculation);
     }
 }
-
 
 
 

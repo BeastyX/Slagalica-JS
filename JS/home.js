@@ -7,20 +7,30 @@ const btnKoZnaZna = document.getElementById("game3");
 const btnSkocko = document.getElementById("game4");
 const usernameHolder = document.getElementById("user-holder");
 
+const leaderboardBtn = document.getElementById("leaderboardBtna");
+const leaderboard = document.getElementById("leaderBoard");
 const tbody = document.querySelector("#leaderBoard tbody");
-const tr = document.createElement("tr");
 
 const gameBtns = document.querySelectorAll(".game-button");
 
 const POENI = 'poeni';
 let USERNAME = localStorage.getItem("username");
 
+let gamesByOrder = ["game1", "game2", "game3", "game4"];
+let userObject = {};
+let gamePointsArray = [];
+let gamesArray = [];
+
+let allUsersArray = [];
+
 numberOfDisabledGames();
 usernameLogic();
 
-
 let poeni = 0;
+let prevPoeni;
 let user = "";
+let gameCounter = 1;
+
 
 if (localStorage.getItem(POENI)) 
     poeni = parseInt(localStorage.getItem(POENI), 10);
@@ -28,8 +38,83 @@ if (localStorage.getItem(POENI))
 if (localStorage.getItem("username")) 
     user = localStorage.getItem("username");
 
+if(localStorage.getItem("prevPoeni"))
+    prevPoeni = localStorage.getItem("prevPoeni"); 
+
+if(localStorage.getItem("gameCounter"))
+    gameCounter = localStorage.getItem("gameCounter");
+
+if(localStorage.getItem("gamePointsArray"))
+    gamePointsArray = JSON.parse(localStorage.getItem("gamePointsArray"));
+
+if(localStorage.getItem("gamesArray"))
+    gamesArray = JSON.parse(localStorage.getItem("gamesArray"));
+
+if(localStorage.getItem("allUsersArray"))
+    allUsersArray = JSON.parse(localStorage.getItem("allUsersArray"));
+
 pointHolder.textContent = poeni;
 usernameHolder.textContent = user;
+
+userObject.username = usernameHolder.textContent; // // // USERNAME IN OBJECT
+
+pointsEarned();
+if (gamePointsArray.length == 4) 
+{
+    arangePointsArray();
+    userObject.points = gamePointsArray; // // // ALL GAME POINTS IN OBJECT
+    userObject.total = poeni; // // // TOTAL IN OBJECT
+
+    allUsersArray.push(userObject);
+    localStorage.setItem("allUsersArray", JSON.stringify(allUsersArray));
+
+    updateTable();
+    popupFn(); 
+}
+
+console.log(userObject);
+console.log(allUsersArray);
+// console.log(gamesArray);
+
+function pointsEarned()
+{
+    if(gamesArray.length > 0)
+    {
+        console.log("Blah");
+        console.log(gameCounter);
+
+        // console.log(poeni);
+        // console.log(prevPoeni);
+
+        let pointsEarned = poeni - prevPoeni // mojBroj - 0 // mojBrojSpojnice - mojBroj ... 
+
+        // let game = `game${gameCounter}`; //game1 game2 game3 game4
+        // userObject[game] = pointsEarned; //game1 = 20, game2 = 4 ...
+
+        console.log(typeof(gamePointsArray));
+        gamePointsArray.push(pointsEarned);
+        localStorage.setItem("gamePointsArray", JSON.stringify(gamePointsArray));
+
+        gameCounter++;
+        localStorage.setItem("gameCounter", gameCounter);
+    }
+}
+
+function arangePointsArray()
+{
+    let gamePointsArrayTemp = [];
+    console.log(gamePointsArray);
+    console.log(gamesArray);
+    console.log(gamesByOrder);
+
+
+    for (let i = 0; i < 4; i++) //0 1 2 3
+    {
+        gamePointsArrayTemp[i] = gamePointsArray[gamesArray.indexOf(gamesByOrder[i])];
+    }
+
+    gamePointsArray = gamePointsArrayTemp;
+}
 
 function usernameLogic()
 {
@@ -63,25 +148,58 @@ function numberOfDisabledGames()
             disabledCount++;
     }
     console.log(`Number of disabled games: ${disabledCount}`);
-
-    if(disabledCount == 4)
-        leaderboradFiller();
 }
 
-function leaderboradFiller()
+function updateTable() 
 {
-    for (let i = 0; i < 6; i++) 
+    leaderboard.style.display = 'table';
+    tbody.innerHTML = ''; 
+
+    allUsersArray.sort((a, b) => b.total - a.total); // Sortiranje po poenima
+
+    for (const object of allUsersArray) 
     {
-        const td = document.createElement("td");
-        td.textContent = `Cell ${i + 1}`;
-        tr.appendChild(td);
+        let row = document.createElement("tr");
+
+        for (const key in object) 
+        {
+            if (Array.isArray(object[key])) 
+            {
+                object[key].forEach(value => 
+                {
+                    let td = document.createElement("td");
+                    td.textContent = value;
+                    row.appendChild(td);
+                });
+            } else 
+            {
+                let td = document.createElement("td");
+                td.textContent = object[key];
+                row.appendChild(td);
+            }
+        }
+
+        tbody.appendChild(row);
     }
-    tbody.appendChild(tr);
 }
+
 
 function resetPoints() 
 {
     poeni = 0;
+    prevPoeni = 0;
+    gameCounter = 1;
+    gamePointsArray = [];
+    gamesArray = [];
+
+    localStorage.setItem("prevPoeni", prevPoeni);
+    localStorage.setItem("gameCounter", gameCounter);
+    localStorage.setItem("gamePointsArray", JSON.stringify(gamePointsArray));
+    localStorage.setItem("gamesArray", JSON.stringify(gamesArray));
+
+    // allUsersArray = [];
+    // localStorage.setItem("allUsersArray", JSON.stringify(allUsersArray));
+
     pointHolder.textContent = poeni;
     localStorage.setItem(POENI, poeni);
 
@@ -98,8 +216,14 @@ function resetPoints()
 
 function disableGame(event)
 {
+    prevPoeni = poeni;
+    localStorage.setItem("prevPoeni", prevPoeni);
+
     
     gameID = event.target.id; //MojBroj
+
+    gamesArray.push(gameID);
+    localStorage.setItem("gamesArray", JSON.stringify(gamesArray));
 
     event.target.style.cursor = "not-allowed"; // Update style
     event.target.disabled = true;
@@ -119,6 +243,19 @@ function restoreDisabledGames()
             element.style.opacity = "50%";
         }  
     }
+}
+
+function popupFn() 
+{
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("popupDialog").style.display = "block";
+
+    updateTable();
+}
+function closeFn() 
+{
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("popupDialog").style.display = "none";
 }
 
 btnPointReset.addEventListener("click", resetPoints);

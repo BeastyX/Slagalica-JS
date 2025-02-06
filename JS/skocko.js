@@ -1,6 +1,7 @@
 const leftFields = Array.from(document.getElementById("left").querySelectorAll("img"));
 const rightFields = Array.from(document.getElementById("right").querySelectorAll("div")); // Pokupi samo polja iz desne tabele
 const imageFields = Array.from(document.getElementById("contaiener-skocko").querySelectorAll("button"));
+const correctAnswerFields = Array.from(document.getElementById("correctAnswerContainer").querySelectorAll("td"));
 
 const backspaceBtn = document.getElementById("backOneStep");
 const checkBtn = document.getElementById("checkIt");
@@ -19,8 +20,9 @@ let answerArray = [];
 let answerToFind = [];
 let allImageFieldsArray = ["skocko", "tref", "pik", "srce", "karo", "zvezda"];
 
-console.log(leftFields);
-console.log(rightFields);
+console.log(answerToFind);
+// console.log(leftFields);
+// console.log(rightFields);
 console.log(imageFields);
 
 onClick();
@@ -178,6 +180,7 @@ function fieldColors(fieldColorArray)
     {
         dissableImage();
         dissableCheck();
+        showAnswer();
 
         poeni += 20;
 
@@ -192,6 +195,7 @@ function fieldColors(fieldColorArray)
     {
         clearInterval(intervalID);
         console.log("Lost");
+        showAnswer();
     }
 
 }
@@ -222,6 +226,32 @@ function dissableCheck()
     checkBtn.style.opacity = "50%";
 }
 
+function showAnswer()
+{
+    const imagePaths = 
+    {
+        "skocko": "/images/slagalicaLogo.png",
+        "tref": "images/tref.png",
+        "pik": "/images/pik.png",
+        "srce": "/images/heart.png",
+        "karo": "images/karo.png",
+        "zvezda": "images/zvezda.png"
+    };
+
+    correctAnswerFields.forEach((td, index) => 
+    {
+        if (index < answerToFind.length) 
+        {
+            const img = document.createElement("img");
+            img.src = imagePaths[answerToFind[index]];
+            img.alt = answerToFind[index];
+
+            td.innerHTML = "";
+            td.appendChild(img);
+        }
+    });
+}
+
 function updateCountdown()
 {
     let seconds = timer % 60;
@@ -237,6 +267,7 @@ function updateCountdown()
 
         dissableImage();
         dissableCheck();
+        showAnswer();
 
         backspaceBtn.disabled = true;
         backspaceBtn.style.cursor = 'not-allowed';

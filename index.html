@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slagalicaa</title>
     <link rel="stylesheet" href="css/main.min.css">
-    <!-- <script src="JS/app.js" defer></script> -->
     <script src="JS/home.js" defer></script>
 </head>
 <body>
@@ -16,7 +15,32 @@
             <a href="spojnice.html"><button id="game2" class="game-button">Spojnice</button></a>
             <a href="koZnaZna.html"><button id="game3" class="game-button">Ko zna zna</button></a>
             <a href="skocko.html"><button id="game4" class="game-button">Skocko</button></a>
-            <button id="point-reset">RESET POINTS</button>
+
+            <button id="leaderboardBtn" onclick="popupFn()">Leader board</button>
+            <div id="overlay"></div>
+            <div id="popupDialog">
+                <button id="closePopup" onclick="closeFn()">
+                    X
+                </button>
+                <table id="leaderBoard">
+                    <thead>
+                        <tr>
+                            <td>Username</td>
+                            <td>Moj broj</td>
+                            <td>Spojnice</td>
+                            <td>Ko zna zna</td>
+                            <td>Skocko</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    </tbody>
+                </table>
+                
+            </div>
+
+            <button id="point-reset">RESET ALL</button>
         </div>
     </div>
     <div id="point-holder">
@@ -24,7 +48,7 @@
     <div id="user-holder">
     </div>
 
-    <table id="leaderBoard">
+    <!-- <table id="leaderBoard">
         <thead>
             <tr>
                 <td>Username</td>
@@ -38,6 +62,6 @@
         <tbody>
 
         </tbody>
-    </table>
+    </table> -->
 </body>
 </html>

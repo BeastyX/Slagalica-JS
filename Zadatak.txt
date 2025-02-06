@@ -17,7 +17,7 @@ Skocko
 
 <> <> MOJ BROJ <> <>
 
-<> Izgled Moj Broj -> takodje sam video da na ovom sajtu igra imas samo za jedan broj. U mom resenju mogu da dam niz 10 random brojeva
+<> Izgled Moj Broj
 https://www.slagalica.tv/game/mojbroj/
 <> How to convert string equation to number in javascript?
 https://stackoverflow.com/questions/10286386/how-to-convert-string-equation-to-number-in-javascript
@@ -77,3 +77,10 @@ https://stackoverflow.com/questions/16623852/how-to-pause-javascript-code-execut
 https://stackoverflow.com/questions/18404211/queryselectorall-how-to-only-get-elements-within-a-certain-div
 <> Using JavaScript's sort Method for Sorting Arrays of Numbers
 https://www.digitalocean.com/community/tutorials/js-array-sort-numbers
+----------------------------------------------------------------------------------------------------------------------
+
+<> <> KORISNICI <> <>
+<> JavaScript HTML DOM Elements (Nodes)
+https://www.w3schools.com/js/js_htmldom_nodes.asp
+<> How to Open a Popup on Click using JavaScript ?
+https://www.geeksforgeeks.org/how-to-open-a-popup-on-click-using-javascript/

@@ -65,9 +65,57 @@ body
                 background-color: rgb(219, 219, 219);
             }
 
-            #point-reset
+            #leaderboardBtn
             {
                 margin-top: 100px;
+            }
+
+            #popupDialog 
+            {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                background-repeat: no-repeat;
+                background-position: top center;
+                background-size: cover;
+                
+                background-image: url('../images/abstract-1779589_1920.png');
+                border: 1px solid $glasses-color;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+    
+            #overlay 
+            {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            #closePopup
+            {
+                position: absolute;
+                right: 20px;
+
+                width: 100px;
+                background-color: rgba(255, 123, 123, 0.373);
+                border: 2px solid red;
+
+                text-shadow: 0 4px 8px red;
+                color: white;
+            }
+
+            #point-reset
+            {
                 color: red;
             }
         }
@@ -118,6 +166,8 @@ body
         background-color: $field-color;
         color: white;
         text-shadow: 0 4px 8px $glasses-color;
+        
+        display: none;
         tr
         {
             td
