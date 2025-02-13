@@ -58,7 +58,7 @@ console.log(result);
 // console.log(leftButtons);
 // console.log(rightButtons);
 
-// console.log(arrayOfCorrectAnswers);
+console.log(arrayOfCorrectAnswers);
 
 function randomNumber10()
 {

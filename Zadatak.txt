@@ -12,6 +12,10 @@ MojBroj
 Spojnice
 Ko zna zna
 Skocko
+
+// skocko skocko tref tref
+// tref tref skocko skocko
+
 --------------------------------------------------------------------------------------
 <> L I N K S <>
 

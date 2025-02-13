@@ -153,7 +153,7 @@ function checkAnswer()
 
 function fieldColors(fieldColorArray)
 {
-    fieldColorArray.sort((a, b) => a - b); // array sort from [1, 2, 1 , 2] to [1, 1, 2, 2]
+    fieldColorArray.sort((a, b) => a - b); // array sort from [1, 2, 1 , 2] to [1, 1, 2, 2] [1, 1, 1, 1]
     circleCounter = 4;
     console.log(fieldColorArray);
 
@@ -173,8 +173,6 @@ function fieldColors(fieldColorArray)
             circleCounter--;
         }
     }
-
-
 
     if(winCounter == 4)
     {
@@ -251,6 +249,7 @@ function showAnswer()
         }
     });
 }
+
 
 function updateCountdown()
 {
